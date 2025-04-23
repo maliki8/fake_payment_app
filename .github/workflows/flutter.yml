@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Clear old actions
+        run: rm -rf /home/runner/work/_actions
+
       - uses: actions/checkout@v2
 
       - name: Install Flutter
@@ -30,7 +33,7 @@ jobs:
         continue-on-error: false
 
       - name: Upload APK to GitHub
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@9c756f52d4a8214928b8bde9a87a8d6f545b405b
         with:
           name: debug-apk
           path: artifacts/app-debug.apk
